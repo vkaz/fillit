@@ -19,25 +19,21 @@ char		*ft_strstr(char *str, char *to_find)
 	int		l;
 
 	i = 0;
-	c = 0;
-	l = ft_strlen(to_find);
-	if (l > 0)
+	l = 0;
+	while (to_find[l] != '\0')
+		l++;
+	if (l == 0)
+		return((char*)str);
+	while (str[i])
 	{
-		while (str[i])
+		c = 0;
+		while (str[i + c] ==  to_find[c])
 		{
-			str[i] == to_find;
-			if (str[i] ==  to_find[c])
-			{
-				while (str[i] ==  to_find[c])
-				{
-					if (to_find[c + 1] == '\0')
-						return (str[i - c]);
-					i++;
-					c++;
-				}
-			}
-			i++;
+			if (to_find[c + 1] == '\0')
+				return ((char*)str + i);
+			c++;
 		}
+		i++;
 	}
-	return (str);
+	return (0);
 }

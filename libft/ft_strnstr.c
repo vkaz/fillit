@@ -10,24 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strnstr(char	*str, const char *to_find, int len)
+#include "libft.h"
+
+char	*ft_strnstr(char *str, const char *to_find, int len)
 {
 	int		a;
 	int		b;
 	int		c;
+	int		cou;
 
 	a = 0;
-	c = 0;
+	cou = 0;
+	while (to_find[cou] != '\0')
+		cou++;
+	if (cou == 0)
+		return (str);
 	while (str[a] != '\0' && a < len)
 	{
 		b = a;
-		while (str[b] == to_find[c])
+		c = 0;
+		while (str[b] == to_find[c] && b < len && str[b] && to_find[c])
 		{
 			b++;
 			c++;
 		}
 		if (to_find[c] == '\0')
-			return (str);
+			return (&str[b - c]);
 		a++;
 	}
 	return (0);

@@ -37,9 +37,10 @@ void	ft_putendl(char const *s);
 void	ft_putendl_fd(char const *s, int fd);
 void	ft_putstr_fd(char const *str, int fd);
 void	ft_putnbr(int n);
+void	ft_striteri(char *s, void (*f)(unsigned int, char *));
+void	ft_strdel(char **as);
+
 int		ft_strequ(char const *s1, char const *s2);
-
-
 int		ft_atoi(char *str);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -64,8 +65,10 @@ char	*ft_strrchr(const char *str, int ch);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strchr(const char *str, int ch);
+char	*ft_strmap(char const *s, char (*f)(char));
+char	*ft_strnew(size_t size);
+char	*ft_strtrim(char const *s);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 
 #endif
-

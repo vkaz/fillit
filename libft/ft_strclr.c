@@ -12,13 +12,17 @@
 
 #include "libft.h"
 
-void ft_strclr(char *s)
+void	ft_strclr(char *s)
 {
 	int		i;
 
-	while (s[i] != '\0')
+	i = 0;
+	if (*s && s)
 	{
-		i++;
+		while (s[i] != '\0')
+		{
+			i++;
+		}
+		ft_bzero(s, i);
 	}
-	ft_bzero(&s[i], i);
 }
