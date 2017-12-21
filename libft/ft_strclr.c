@@ -17,7 +17,7 @@ void	ft_strclr(char *s)
 	int		i;
 
 	i = 0;
-	if (*s && s)
+	if (s)
 	{
 		while (s[i] != '\0')
 		{

@@ -12,15 +12,15 @@
 
 #include "libft.h"
 
-int		ft_strcmp(char *s1, char *s2)
+int		ft_strcmp(const char *s1, const char *s2)
 {
 	unsigned int	i;
 	unsigned char	*src1;
 	unsigned char	*src2;
 
 	i = 0;
-	src1 = s1;
-	src2 = s2;
+	src1 = (unsigned char*)s1;
+	src2 = (unsigned char*)s2;
 	while (src1[i] != '\0' || src2[i] != '\0')
 	{
 		if (src1[i] != src2[i])

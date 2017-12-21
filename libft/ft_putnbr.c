@@ -12,11 +12,9 @@
 
 #include "libft.h"
 
-void		ft_putchar(char c);
-
 void		ft_putnbr(int n)
 {
-	int		i;
+	unsigned int		i;
 
 	if (n < 0)
 	{

@@ -14,34 +14,29 @@
 
 int		ft_atoi(char *str)
 {
-	unsigned long res;
-	int s;
-	int i;
-	int rez;
+	unsigned long	res;
+	int				s;
 
 	res = 0;
 	s = 1;
-	i = 0;
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-			|| str[i] == '\f' || str[i] == '\r' || str[i] == ' '
-			|| str[i] == '+')
-		i++;
-	if (str[i] == '-')
+	while (*str == '\t' || *str == '\n' || *str == '\v' || *str == '\f'
+		|| *str == '\r' || *str == ' ' || *str == '+')
+		*str++;
+	if (*str == '-')
 	{
 		s = -1;
-		i++;
+		*str++;
 	}
-	while (str[i] >= '0' && str[i] <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		if ((res > 922337203685477580 || (res == 922337203685477580 &&(str[i]
-		 - '0') > 7)) && s == 1)
+		if ((res > 922337203685477580 || (res == 922337203685477580 && (*str
+		- '0') > 7)) && s == 1)
 			return (-1);
-		else if ((res > 922337203685477580 || (res == 922337203685477580 
-		 &&(str[i] - '0') > 8)) && s == -1)
+		else if ((res > 922337203685477580 || (res == 922337203685477580
+		&& (*str - '0') > 8)) && s == -1)
 			return (0);
-		res = res * 10 + str[i] - '0';
-		i++;
+		res = res * 10 + *str - '0';
+		*str++;
 	}
-	rez = res * s;
-	return (rez);
+	return (res * s);
 }

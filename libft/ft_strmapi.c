@@ -18,9 +18,9 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*str;
 
 	i = 0;
-	if (*s && *f)
+	if (s)
 	{
-		str = ft_strnew(ft_strlen(s));
+		str = ft_strnew(ft_strlen((char*)s));
 		if (!str)
 			return (NULL);
 		while (s[i])
@@ -28,8 +28,8 @@ char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 			str[i] = f(i, s[i]);
 			i++;
 		}
+		str[i] = '\0';
 		return (str);
 	}
-	str[i] = '\0';
 	return (NULL);
 }

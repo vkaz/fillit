@@ -14,17 +14,17 @@
 
 void	*ft_memchr(const void *arr, int c, size_t n)
 {
-	unsigned char	*s1;
-	unsigned char	s2;
-	unsigned long			 	i;
+	unsigned char		*s1;
+	unsigned char		s2;
+	unsigned long		i;
 
-	s1 = (unsigned char *) arr;
-	s2 = (unsigned char) c;
+	s1 = (unsigned char*)arr;
+	s2 = (unsigned char)c;
 	i = 0;
 	while (i < n)
 	{
 		if (s1[i] == s2)
-			return ((void *) s1 + i);
+			return ((void *)s1 + i);
 		i++;
 	}
 	return (NULL);

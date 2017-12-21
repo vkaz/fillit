@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 void	ft_bzero(char *b, size_t n)
 {
 	char	*s;
@@ -24,5 +23,4 @@ void	ft_bzero(char *b, size_t n)
 		s++;
 		n--;
 	}
-
 }

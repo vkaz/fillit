@@ -21,20 +21,19 @@ char	*ft_strtrim(char const *s)
 
 	c = 0;
 	a = 0;
-	i = ft_strlen((char*)s);
-	while (s[i - 1] == ' ' || s[i - 1] == ',' || s[i - 1] == '\n' ||
+	if (s)
+	{
+		i = ft_strlen((char*)s);
+		while (s[i - 1] == ' ' || s[i - 1] == ',' || s[i - 1] == '\n' ||
 			s[i - 1] == '\t')
 			i--;
-	if (i <= 0)
-		i = 0;
-	while (s[c] == ' ' || s[c] == ',' || s[c] == '\n' || s[c] == '\t')
-		c++;
-	str = (char*)malloc(sizeof(*str) * ((i - c) + 1));
-	if (!str)
-		return (NULL);
-	if (str)
-	{
-		while (c < i)
+		while (s[++c] == ' ' || s[c] == ',' || s[c] == '\n' || s[c] == '\t')
+			i--;
+		if (i <= 0)
+			i = 0;
+		if ((str = (char*)malloc(sizeof(*str) * i)) == NULL)
+			return (NULL);
+		while (a < i - 1)
 			str[a++] = s[c++];
 		str[a] = '\0';
 		return (str);
