@@ -22,7 +22,7 @@ static int		get_len(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	unsigned int	n_c;
 	size_t			len;
@@ -36,7 +36,7 @@ char		*ft_itoa(int n)
 	}
 	else if (n >= 0)
 		n_c = n;
-	if (!(str = (char*)malloc(sizeof(*str) * len)) == NULL)
+	if (!(str = ft_strnew(len)))
 		return (NULL);
 	str[--len] = n_c % 10 + '0';
 	while (n_c /= 10)

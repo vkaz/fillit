@@ -19,24 +19,22 @@ char	*ft_strtrim(char const *s)
 	int			c;
 	int			a;
 
-	c = 0;
+	c = -1;
 	a = 0;
-	if (s)
-	{
-		i = ft_strlen((char*)s);
-		while (s[i - 1] == ' ' || s[i - 1] == ',' || s[i - 1] == '\n' ||
-			s[i - 1] == '\t')
-			i--;
-		while (s[++c] == ' ' || s[c] == ',' || s[c] == '\n' || s[c] == '\t')
-			i--;
-		if (i <= 0)
-			i = 0;
-		if ((str = (char*)malloc(sizeof(*str) * i)) == NULL)
-			return (NULL);
-		while (a < i - 1)
-			str[a++] = s[c++];
-		str[a] = '\0';
-		return (str);
-	}
-	return (NULL);
+	if (s == NULL)
+		return (NULL);
+	i = ft_strlen((char*)s);
+	while (s[i - 1] == ' ' || s[i - 1] == ',' || s[i - 1] == '\n' ||
+		s[i - 1] == '\t')
+		i--;
+	while (s[++c] == ' ' || s[c] == ',' || s[c] == '\n' || s[c] == '\t')
+		i--;
+	if (i <= 0)
+		i = 0;
+	if ((str = (char*)malloc(sizeof(*str) * (i + 1))) == NULL)
+		return (NULL);
+	while (a < i)
+		str[a++] = s[c++];
+	str[a] = '\0';
+	return (str);
 }
