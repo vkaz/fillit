@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkaznodi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 14:16:20 by vkaznodi          #+#    #+#             */
-/*   Updated: 2017/11/16 14:16:24 by vkaznodi         ###   ########.fr       */
+/*   Created: 2017/12/29 15:42:39 by vkaznodi          #+#    #+#             */
+/*   Updated: 2017/12/29 15:42:40 by vkaznodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t			i;
-	unsigned char	*src1;
-	unsigned char	*src2;
+	t_list		*list;
+	t_list		*new;
+	t_list		*res;
 
-	i = 0;
-	src1 = (unsigned char*)s1;
-	src2 = (unsigned char*)s2;
-	while ((src1[i] != '\0' || src2[i] != '\0') && i < n)
+	if (!lst || !f)
+		return (NULL);
+	list = f(lst);
+	if (!(new = ft_lstnew(list->content, list->content_size)))
+		return (NULL);
+	lst = lst->next;
+	res = new;
+	while (lst)
 	{
-		if (src1[i] != src2[i])
-			return (src1[i] - src2[i]);
-		i++;
+		list = f(lst);
+		if (!(new->next = ft_lstnew(list->content, list->content_size)))
+			return (NULL);
+		new = new->next;
+		lst = lst->next;
 	}
-	return (0);
+	return (res);
 }

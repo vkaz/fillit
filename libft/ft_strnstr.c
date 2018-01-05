@@ -16,8 +16,8 @@ char	*ft_strnstr(char *str, const char *to_find, int len)
 {
 	int		a;
 	int		b;
-	int		c;
-	int		cou;
+	size_t	c;
+	size_t	cou;
 
 	a = 0;
 	cou = 0;

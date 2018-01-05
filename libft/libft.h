@@ -12,13 +12,15 @@
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft_typedefs.h"
 
 void	*ft_memccpy(void *dst, void *src, int c, size_t n);
 void	*ft_memchr(const void *arr, int c, size_t n);
-void	ft_bzero(char *b, size_t n);
+void	ft_bzero(void *b, size_t n);
 void	*ft_memcpy(void *dst, void *src, size_t n);
 void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_memset(void *dst, int c, size_t n);
@@ -36,6 +38,7 @@ void	*ft_memcpy(void *dst, void *src, size_t n);
 void	ft_memdel(void **ap);
 void	ft_putstr(char const *str);
 void	ft_strclr(char *s);
+void	ft_putnbr_fd(int n, int fd);
 
 int		ft_strequ(char const *s1, char const *s2);
 int		ft_atoi(char *str);
@@ -47,8 +50,7 @@ int		ft_isprint(int ch);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-int		ft_strlen(char *s);
-int		ft_strncmp(char *s1, char *s2, unsigned int n);
+int		ft_strncmp(const char *s1, const char *s2, unsigned int n);
 int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strnequ(char const *s1, char const *s2, size_t n);
 
@@ -71,5 +73,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strsub(char const *s, unsigned int start, size_t len);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
+size_t	ft_strlen(char *s);
+
+void	ft_lstiter(t_list *lst, void (*f)(t_list *elem));
+void	ft_lstadd(t_list **alst, t_list *new);
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+
+t_list	*ft_lstnew(void const *content, size_t content_size);
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
 #endif

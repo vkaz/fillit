@@ -14,14 +14,13 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	unsigned int	i;
+	size_t			i;
 	char			*str;
 
 	i = 0;
-	if (s)
+	if (s && f)
 	{
-		str = ft_strnew(ft_strlen((char*)s));
-		if (!str)
+		if (!(str = ft_strnew(ft_strlen((char*)s))))
 			return (NULL);
 		while (s[i])
 		{

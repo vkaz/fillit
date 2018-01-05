@@ -14,11 +14,11 @@
 
 char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	unsigned int	i;
+	size_t			i;
 	char			*str;
 
 	i = 0;
-	if (s)
+	if (s && f)
 	{
 		str = ft_strnew(ft_strlen((char*)s));
 		if (!str)

@@ -14,9 +14,9 @@
 
 char		*ft_strstr(char *str, char *to_find)
 {
-	int		i;
-	int		c;
-	int		l;
+	size_t		i;
+	size_t		c;
+	size_t		l;
 
 	i = 0;
 	l = 0;

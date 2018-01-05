@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkaznodi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 14:16:20 by vkaznodi          #+#    #+#             */
-/*   Updated: 2017/11/16 14:16:24 by vkaznodi         ###   ########.fr       */
+/*   Created: 2017/12/29 15:41:40 by vkaznodi          #+#    #+#             */
+/*   Updated: 2017/12/29 15:41:42 by vkaznodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t			i;
-	unsigned char	*src1;
-	unsigned char	*src2;
+	t_list		*list;
+	t_list		*next_list;
 
-	i = 0;
-	src1 = (unsigned char*)s1;
-	src2 = (unsigned char*)s2;
-	while ((src1[i] != '\0' || src2[i] != '\0') && i < n)
+	if (alst && del)
 	{
-		if (src1[i] != src2[i])
-			return (src1[i] - src2[i]);
-		i++;
+		list = *alst;
+		while (list)
+		{
+			next_list = list->next;
+			del(list->content, list->content_size);
+			free(list);
+			list = next_list;
+		}
+		*alst = NULL;
 	}
-	return (0);
 }

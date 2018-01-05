@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int		get_len(char const *s, char c)
+static size_t	get_len(char const *s, char c)
 {
 	size_t		i;
 	size_t		count;
@@ -29,7 +29,7 @@ static int		get_len(char const *s, char c)
 	return (count);
 }
 
-static int		words(char const *s, char c)
+static size_t	words(char const *s, char c)
 {
 	size_t		i;
 	size_t		count;
@@ -50,28 +50,28 @@ static int		words(char const *s, char c)
 
 char			**ft_strsplit(char const *s, char c)
 {
-	int			i;
-	int			j;
-	int			a;
-	int			w;
+	size_t		i;
+	size_t		j;
+	size_t		cw;
 	char		**str;
 
-	j = 0;
-	w = -1;
-	if (!s || !(str = (char **)malloc(sizeof(*str) * (words(s, c) + 1))))
+	if (!s)
 		return (NULL);
-	while (++w < words(&s[j], c))
+	cw = words(s, c);
+	j = 0;
+	i = 0;
+	if (!(str = (char**)malloc(sizeof(char*) * (cw + 1))))
+		return (NULL);
+	while (cw--)
 	{
-		a = 0;
-		i = get_len((char*)s, c);
-		if (!(str[w] = (char*)malloc(sizeof(*str) * (i + 1))))
-			str[w] = NULL;
-		while (s[j] == c)
-			j++;
-		while (s[j] != c && s[j])
-			str[w][a++] = s[j++];
-		str[w][a] = '\0';
+		while (*s == c && *s)
+			s++;
+		j = get_len((char*)s, c);
+		if (!(str[i] = ft_strncpy(ft_strnew(j), (char*)s, j)))
+			return (NULL);
+		s += j;
+		i++;
 	}
-	str[w] = 0;
+	str[i] = NULL;
 	return (str);
 }

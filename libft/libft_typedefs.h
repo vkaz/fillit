@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   libft_typedefs.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkaznodi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 14:16:20 by vkaznodi          #+#    #+#             */
-/*   Updated: 2017/11/16 14:16:24 by vkaznodi         ###   ########.fr       */
+/*   Created: 2018/01/03 15:50:44 by vkaznodi          #+#    #+#             */
+/*   Updated: 2018/01/03 15:50:49 by vkaznodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_TYPEDEFS_H
+# define LIBFT_TYPEDEFS_H
 
-int		ft_strncmp(const char *s1, const char *s2, unsigned int n)
+typedef struct			s_list
 {
-	size_t			i;
-	unsigned char	*src1;
-	unsigned char	*src2;
+	void				*content;
+	size_t				content_size;
+	struct s_list		*next;
+}						t_list;
 
-	i = 0;
-	src1 = (unsigned char*)s1;
-	src2 = (unsigned char*)s2;
-	while ((src1[i] != '\0' || src2[i] != '\0') && i < n)
-	{
-		if (src1[i] != src2[i])
-			return (src1[i] - src2[i]);
-		i++;
-	}
-	return (0);
-}
+#endif

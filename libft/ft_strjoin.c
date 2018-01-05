@@ -14,10 +14,10 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char		*str;
-	int			i;
-	int			c;
-	int			c1;
+	char			*str;
+	size_t			i;
+	size_t			c;
+	size_t			c1;
 
 	i = 0;
 	if (s1 && s2)
