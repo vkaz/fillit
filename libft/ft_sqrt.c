@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkaznodi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/14 14:27:50 by vkaznodi          #+#    #+#             */
-/*   Updated: 2017/12/14 14:27:51 by vkaznodi         ###   ########.fr       */
+/*   Created: 2017/07/29 21:09:19 by vkaznodi          #+#    #+#             */
+/*   Updated: 2017/07/29 21:28:01 by vkaznodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-char	*ft_strchr(const char *str, int ch)
+int		ft_sqrt(int nb)
 {
-	char	*s;
+	int r;
 
-	s = (char*)str;
-	while (*s)
+	r = 1;
+	if (nb <= 0)
 	{
-		if (*s == (char)ch)
-			return (s);
-		s++;
+		return (0);
 	}
-	if ((char)ch == 0)
-		return (s);
-	return (NULL);
+	while ((r * r) < nb)
+	{
+		r++;
+	}
+	if ((nb % r) == 0)
+	{
+		return (r);
+	}
+	else
+	{
+		return (0);
+	}
 }

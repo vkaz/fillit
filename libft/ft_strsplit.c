@@ -67,7 +67,7 @@ char			**ft_strsplit(char const *s, char c)
 		while (*s == c && *s)
 			s++;
 		j = get_len((char*)s, c);
-		if (!(str[i] = ft_strncpy(ft_strnew(j), (char*)s, j)))
+		if (!(str[i] = ft_strsub((const char*)s, 0, j)))
 			return (NULL);
 		s += j;
 		i++;

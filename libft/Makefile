@@ -18,10 +18,6 @@ FLAGS=-Wall -Wextra -Werror
 
 RM=rm -f
 
-LDFLAGS=-L.
-
-LDLIBS=-lft
-
 SRC= ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c \
 ft_memmove.c ft_memchr.c ft_memcmp.c ft_memalloc.c ft_memdel.c \
 ft_strlen.c ft_strdup.c ft_strcpy.c ft_strncpy.c ft_strcat.c ft_strncat.c \
@@ -34,7 +30,8 @@ ft_itoa.c ft_striteri.c ft_strmap.c ft_strmapi.c ft_strequ.c \
 ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 ft_putstr.c ft_putendl.c ft_putnbr.c ft_putstr_fd.c ft_putendl_fd.c \
 ft_putnbr_fd.c ft_strchr.c ft_strrchr.c ft_lstnew.c ft_lstdelone.c \
-ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c \
+ft_lstdel.c ft_lstadd.c ft_lstiter.c ft_lstmap.c ft_swap.c ft_range.c \
+ft_div_mod.c ft_recursive_factorial.c ft_sqrt.c
 
 OBJ=$(SRC:.c=.o)
 	

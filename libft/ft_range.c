@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkaznodi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/14 14:27:50 by vkaznodi          #+#    #+#             */
-/*   Updated: 2017/12/14 14:27:51 by vkaznodi         ###   ########.fr       */
+/*   Created: 2017/08/03 18:37:03 by vkaznodi          #+#    #+#             */
+/*   Updated: 2017/08/03 18:37:05 by vkaznodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *str, int ch)
+int		*ft_range(int min, int max)
 {
-	char	*s;
+	int *mas;
+	int a;
 
-	s = (char*)str;
-	while (*s)
+	if (min >= max)
+		return (NULL);
+	if (!(mas = (int*)malloc(sizeof(max - min))))
+		return (NULL);
+	a = 0;
+	while (a < (max - min))
 	{
-		if (*s == (char)ch)
-			return (s);
-		s++;
+		mas[a] = (min + a);
+		a++;
 	}
-	if ((char)ch == 0)
-		return (s);
-	return (NULL);
+	return (mas);
 }

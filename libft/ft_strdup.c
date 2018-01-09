@@ -17,13 +17,9 @@ char		*ft_strdup(char *src)
 	size_t		i;
 	size_t		strlen;
 	char		*strdup;
-	size_t		a;
 
-	a = 0;
-	while (src[a] != '\0')
-		a++;
-	strlen = a;
-	if (!(strdup = (char *)malloc(a + 1)))
+	strlen = ft_strlen(src);
+	if (!(strdup = (char *)malloc(strlen + 1)))
 		return (NULL);
 	i = 0;
 	while (i <= strlen)

@@ -1,23 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_typedefs.h                                   :+:      :+:    :+:   */
+/*   ft_div_mod.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vkaznodi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/03 15:50:44 by vkaznodi          #+#    #+#             */
-/*   Updated: 2018/01/03 15:50:49 by vkaznodi         ###   ########.fr       */
+/*   Created: 2017/07/28 12:34:24 by vkaznodi          #+#    #+#             */
+/*   Updated: 2017/07/28 12:39:40 by vkaznodi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_TYPEDEFS_H
-# define LIBFT_TYPEDEFS_H
-
-typedef struct			s_list
+void	ft_div_mod(int a, int b, int *div, int *mod)
 {
-	void				*content;
-	size_t				content_size;
-	struct s_list		*next;
-}						t_list;
-
-#endif
+	*div = a / b;
+	*mod = a % b;
+}
